@@ -8,8 +8,8 @@ allows writting tacit J expressions with fewer parentheses, MACROS that modify l
 For example, this expression:
 
 parenbutnot1 =: 0 : 0  Tacify   
-addparen 		NB. paren full line. has its own code to not paren 1 token.	 		
- `		NB. else  
+  addparen 		NB. paren full line. has its own code to not paren 1 token.	 		
+   `		NB. else  
   > {: ;: MACcompose   		NB. dont paren 1 token  
  @. 		NB. if  
   1 = # @: ;: 	 	    NB. len is 1  
