@@ -7,12 +7,12 @@ allows writting tacit J expressions with fewer parentheses, MACROS that modify l
 
 For example, this expression:
 
-parenbutnot1 =: 0 : 0  Tacify 
-addparen 		NB. paren full line. has its own code to not paren 1 token.			
- `		NB. else
-  > {: ;: MACcompose   		NB. dont paren 1 token
- @. 		NB. if
-  1 = # @: ;: 	 	    NB. len is 1
+parenbutnot1 =: 0 : 0  Tacify  
+addparen 		NB. paren full line. has its own code to not paren 1 token.	 		
+ `		NB. else  
+  > {: ;: MACcompose   		NB. dont paren 1 token  
+ @. 		NB. if  
+  1 = # @: ;: 	 	    NB. len is 1  
 )
 
 compiles to:
@@ -49,26 +49,26 @@ MACm:  the token to the left of MACm is a monadic verb that takes a string as ri
 
 example (F12 on this line... notice no quotes)
 
-2+2 dissect MACm
+    2+2 dissect MACm
 
-runs
-dissect'2 + 2'
+runs  
+dissect'2 + 2'  
 
 MACd:  the token to the left of MACd is a dyadic verb that takes a string as right argument.  Tokens to the left of that dyadic verb up to 9: (will be excluded) are that verb's left parameter. example:
 
     i.1000 9: (2+8) timespacex MACd
     
-runs
-( 2 + 8 ) timespacex'i. 1000'
-equivalent to: (dyadic parameter expression will also be evaluated, but passed as is)
+runs  
+( 2 + 8 ) timespacex'i. 1000'  
+equivalent to: (dyadic parameter expression will also be evaluated, but passed as is)  
 10 timespacex'i. 1000'
 
 Another way to explain macros is that they are string transformation functions where the string contains the transformation function.  To work more directy with such strings:
 
 
-   procmac_jpp_ 'i.1000 9: (2+8) timespacex MACd'
-( 2 + 8 ) timespacex'i. 1000'
-   ".@:procmac_jpp_ 'i.1000 9: (2+8) timespacex MACd'
-2.432e_6 9472
-   ".@:procmac_jpp_ '2+2'
+   procmac_jpp_ 'i.1000 9: (2+8) timespacex MACd'  
+( 2 + 8 ) timespacex'i. 1000'  
+   ".@:procmac_jpp_ 'i.1000 9: (2+8) timespacex MACd'  
+2.432e_6 9472  
+   ".@:procmac_jpp_ '2+2'  
 4
