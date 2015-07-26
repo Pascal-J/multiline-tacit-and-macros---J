@@ -5,7 +5,7 @@ http://www.jsoftware.com/jwiki/PascalJasmin/Multiline%20tacit%20expressions%20wi
 
 Place all of the files in this package into the same folder.  Only jpp.ijs needs to be loaded to use keyboard shortcuts. (macros in jqt console)
 
-allows writting tacit J expressions with fewer parentheses, MACROS that modify lines within the tacit expression, and comments for each part of a tacit expression
+allows writing tacit J expressions with fewer parentheses, MACROS that modify lines within the tacit expression, and comments for each part of a tacit expression
 
 For example, this expression:
 
@@ -34,7 +34,9 @@ A macro adverb takes a string parameter as its left argument, and must return a 
 
 procmac is a verb that takes a string, tokenizes it with ;:, and if there is a Macro as the rightmost token, calls that macro with the remainder of the string as its argument.  If no macros are present, it returns its input string.
 
-# Macros for J console (j804)
+Macros for multiline tacit expressions are generally designed to replace/add to a text line, while macros for J console are designed to produce executable code.
+
+# Macros for J console (j804) (and edit windows)
 
 It is recommended to use at least the first following user defined key (add this line(s) to userkeys.cfg accessible through edit|configure menu)
 
@@ -43,7 +45,7 @@ F4;0;Timespace exec;DoWithMacro@:(' timespacex MACm' findline_jpp_ ]) ''
 F3;0;Clipboard append exec;DoWithMacro@((' ' , wdclippaste@:(''"_)) findline_jpp_ ])''  
 
 J must be restarted after userkeys.cfg is saved.  
-Afterwards hitting F12 will let you execute any line or selection in the console.
+Afterwards hitting F12 will let you execute any line or selection in the console or edit window.  The results are placed in console.
 
 If that line has a macro on its right, then it will modify the line prior to execution, including recursively scanning for more macros.
 F12 will show you the final code that is run, followed by a linear representation of its result.
@@ -53,7 +55,9 @@ the 'DoWithMacro' name is added to z locale by jpp.ijs.  It is needed so executi
 
 the F4 macro will time execution of any line or selection without having to write the macro command on the line.  An x argument to findline_jpp_ will append x to then end of the selection.  So the shortcut key is equivalent to having ' timespacex MACm' at the end of the selection or line.
 
-the F3 macro is similar except that it copies whatever is on the clipboard to the end of the selection, before executing the line with Macros.  This is a convenient way to apply macros on a key without restarting J or editing keyfile.
+the F3 macro is similar except that it copies whatever is on the clipboard to the end of the selection, before executing the line with Macros.  This is a convenient way to apply macros on a key without restarting J or editing keyfile.  
+
+Some useful macros for the code editor would be selectioned code formatters.  A functional formatter will simply dump the formatted/transformed code to the console. 
 
 # Some useful console macros
 
