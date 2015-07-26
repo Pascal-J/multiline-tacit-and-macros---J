@@ -64,7 +64,7 @@ test5 =:  0 Tacify
    @:>
 )
 test6 =: 0 TacifyR_multiline_
-)   NB. too weird. When reversing, parens must be single line and close at top, open at bottom
+)   NB. too weird. When reversing, single line parens comment required and close at top, open at bottom
  #)
  %
  (+/
