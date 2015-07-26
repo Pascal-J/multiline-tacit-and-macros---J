@@ -73,8 +73,8 @@ test6 =: 0 TacifyR_multiline_
 
 test7 =: 0  Tacify
   +: @  NB. note this creates expression leading with +:@-:
-  @ +: 
-  @ +: 
+  @ -: 
+  @ +:("1) 
   @ +:
 )
 test8=:  0  Tacify
@@ -99,4 +99,20 @@ test9 =: 0 Tacify , 0 Tacify
 ]
 )
 +:
+)
+mixes =: 0 Tacify  NB.langford strings type interleaving
+NB. ] (+"1/ #~&(,/) 1 - +./ .*&:*"1/) [ {.~"1 0 (-@}. i.@>:)&{:&$
+] 
+ (+"1/ 		NB. dyadic/ y +"1/ righward justifies of x. result is 3d (2d for each rightward justify)
+    ,/		NB. roll up 1 dimension of each side to make both 2d
+      #~&		NB. equiv to  #~&(,/) selects from rolled up +"1/ table
+  1 
+    - 		NB. 1 - to produce 0 1 boolean 3d table
+  +./ .*&:*  	NB. inner product over y items *"1/ rightward justifies of x
+    "1/) 		NB. adverbs apply to whole previous phrase
+[ 		NB. x
+ {.~"1 0 		NB. rightward justifies of x upto size of y item shape
+   -@}. i.@>:   NB. hook: negative of excess sizes y over x item shapes as list of i. of y item shape	
+     &{:		NB. item shapes of each xy
+       &$  	NB. x is 1d, y 2d
 )

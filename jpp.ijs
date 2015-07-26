@@ -6,25 +6,40 @@ coinsert 'multiline'
 lr_z_ =: 3 : '5!:5 < ''y'''
 lrA_z_ =: 1 : '5!:5 < ''u'''
 pD_z_ =:  1!:2&2
-findline =: 3 : 0
-  NB. ft =. WinText_jqtide_
-  NB. fs =. WinSelect_jqtide_
-'ft fs' =.  {:"1 wd 'sm get term;'
- fs =. 0 ". fs
-  ft =. 7 u: ft   NB.pD 'ft'; _50 {. 
-  NB. If a single value is selected, take the whole line; otherwise the selected region
+NB. findline =: 3 : 0
+NB.   NB. ft =. WinText_jqtide_
+NB.   NB. fs =. WinSelect_jqtide_
+NB. 'ft fs' =.  {:"1 wd 'sm get term;'
+NB.  fs =. 0 ". fs
+NB.   ft =. 7 u: ft   NB.pD 'ft'; _50 {. 
+NB.   NB. If a single value is selected, take the whole line; otherwise the selected region
+NB.   if. 1 < # ~. fs do.
+NB.    8 u:  (-~/\ fs) (];.0~ ,.)~ ft 
+NB.   else.
+NB.     fs =.  {.fs
+NB.  
+NB.     8 u: (LF taketo&.|. fs {. ft) , LF taketo fs }. ft
+NB.   end.
+NB. )
+NB.
+findline =: 3 : 0  NB. y is added to line or selected text
+'' findline y
+:
+  ft =. 7 u: WinText_jqtide_
+   fs =. WinSelect_jqtide_
+NB.   NB. If a single value is selected, take the whole line; otherwise the selected region
   if. 1 < # ~. fs do.
-   8 u:  (-~/\ fs) (];.0~ ,.)~ ft 
+   x,~ 8 u:  (-~/\ fs) (];.0~ ,.)~ ft 
   else.
     fs =.  {.fs
  
-    8 u: (LF taketo&.|. fs {. ft) , LF taketo fs }. ft
+    x,~ pD 8 u:  (LF taketo&.|. fs {. ft) , LF taketo fs }. ft
   end.
 )
-execM =: 3 : 0
+DoWithMacro_z_ =: execM =: 3 : 0
 
 NB. pD@:lr y
-pD ( pD procmac y) eval lrA
+pD ( pD procmac_jpp_ y) eval lrA
 
 )
 
