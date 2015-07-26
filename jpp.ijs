@@ -33,7 +33,7 @@ NB.   NB. If a single value is selected, take the whole line; otherwise the sele
   else.
     fs =.  {.fs
  
-    x,~ pD 8 u:  (LF taketo&.|. fs {. ft) , LF taketo fs }. ft
+    x,~ 8 u:  (LF taketo&.|. fs {. ft) , LF taketo fs }. ft
   end.
 )
 DoWithMacro_z_ =: execM =: 3 : 0
