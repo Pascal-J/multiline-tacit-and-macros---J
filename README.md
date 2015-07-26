@@ -40,9 +40,9 @@ Macros for multiline tacit expressions are generally designed to replace/add to 
 
 It is recommended to use at least the first following user defined key (add this line(s) to userkeys.cfg accessible through edit|configure menu)
 
-F12;0;Macro exec;DoWithMacro@findline_jpp_ ''  
-F4;0;Timespace exec;DoWithMacro@:(' timespacex MACm' findline_jpp_ ]) ''  
-F3;0;Clipboard append exec;DoWithMacro@((' ' , wdclippaste@:(''"_)) findline_jpp_ ])''  
+    F12;0;Macro exec;DoWithMacro@findline_jpp_ ''  
+    F4;0;Timespace exec;DoWithMacro@:(' timespacex MACm' findline_jpp_ ]) ''  
+    F3;0;Clipboard append exec;DoWithMacro@((' ' , wdclippaste@:(''"_)) findline_jpp_ ])''  
 
 J must be restarted after userkeys.cfg is saved.  
 Afterwards hitting F12 will let you execute any line or selection in the console or edit window.  The results are placed in console.
