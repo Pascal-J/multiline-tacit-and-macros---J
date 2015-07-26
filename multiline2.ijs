@@ -45,11 +45,11 @@ sA =: 1 : 'u'
  NB. 3 Tacify 
 
 parenbutnot1 =: 0 : 0  Tacify 
-addparen 		NB. paren full line. has its own code to not paren 1 token.			
+addparen 		NB. paren full line. has its own code to not paren 0 tokens.			
  `		NB. else
-  > {: ;: MACcompose   		NB. dont paren 1 token
+  > {: ;: MACcompose   	NB. dont paren 1 token
  @. 		NB. if
-  1 = # @: ;: 	 	    NB. len is 1
+  1 = # @: ;: 	 	NB. len is 1
 
 )
 

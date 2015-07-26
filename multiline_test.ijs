@@ -70,6 +70,13 @@ test6 =: 0 TacifyR_multiline_
  (+/
 ( 
 )
+test6a =: 0 TacifyR_multiline_
+
+ #)
+ %
+ (+/
+
+)
 
 test7 =: 0  Tacify
   +: @  NB. note this creates expression leading with +:@-:
@@ -88,7 +95,7 @@ test8=:  0  Tacify
 )
 
 test8=:  0  Tacify
-  (4 : 'c')
+  (3 : 'c')@:]
 +
  [
  x * y c MACassignR   NB.('c =: x * y' (13 :)) 
@@ -99,6 +106,12 @@ test9 =: 0 Tacify , 0 Tacify
 ]
 )
 +:
+)
+
+boxscan =: 0 Tacify
+&.>
+ /
+>@:
 )
 mixes =: 0 Tacify  NB.langford strings type interleaving
 NB. ] (+"1/ #~&(,/) 1 - +./ .*&:*"1/) [ {.~"1 0 (-@}. i.@>:)&{:&$
@@ -112,7 +125,7 @@ NB. ] (+"1/ #~&(,/) 1 - +./ .*&:*"1/) [ {.~"1 0 (-@}. i.@>:)&{:&$
     "1/) 		NB. adverbs apply to whole previous phrase
 [ 		NB. x
  {.~"1 0 		NB. rightward justifies of x upto size of y item shape
-   -@}. i.@>:   NB. hook: negative of excess sizes y over x item shapes as list of i. of y item shape	
-     &{:		NB. item shapes of each xy
-       &$  	NB. x is 1d, y 2d
+-@}. i.@>:	NB. hook: negative of excess sizes y over x item shapes as list of i. of y item shape	
+   &{:		NB. item shapes of each xy
+      &$  	NB. x is 1d, y 2d
 )
